@@ -1,5 +1,5 @@
 {
-  "version": "editorial-28-v2",
+  "version": "editorial-30-v3",
   "pages": [
     {
       "page": 1,
@@ -16,28 +16,28 @@
     {
       "page": 2,
       "section": "Афіни",
-      "title": "Спочатку — місто",
+      "title": "Афіни — разом",
       "photos": [
-        "S01",
+        "C01",
         "S02"
       ],
       "date": "9 жовтня",
       "location": "Афіни",
-      "caption": "Античність, яка не вміє бути непомітною.",
+      "caption": "Навіть стадіон краще працює в команді.",
       "layout": "pair"
     },
     {
       "page": 3,
       "section": "Афіни",
-      "title": "Масштаб Афін",
+      "title": "Місто згори",
       "photos": [
         "S03",
         "S04",
-        "S05"
+        "C02"
       ],
       "date": "9 жовтня",
       "location": "Афіни",
-      "caption": "Кілька тисяч років історії — і жодного поспіху.",
+      "caption": "На Акрополь — ногами. За краєвидом — теж.",
       "layout": "triptych"
     },
     {
@@ -69,17 +69,17 @@
     },
     {
       "page": 6,
-      "section": "Саракініко",
-      "title": "Перша зустріч із білим берегом",
+      "section": "Ранок на Мілосі",
+      "title": "Сніданок і білий берег",
       "photos": [
+        "C03",
         "S11",
-        "S13",
-        "S14"
+        "S13"
       ],
       "date": "10 жовтня",
-      "location": "Саракініко",
-      "caption": "Інша планета — з дуже знайомим морем.",
-      "layout": "triptych"
+      "location": "Адамас → Саракініко",
+      "caption": "Спершу острів у тарілці, тоді — під ногами.",
+      "layout": "photo-story"
     },
     {
       "page": 7,
@@ -100,11 +100,11 @@
       "photos": [
         "S16",
         "S17",
-        "S18"
+        "C04"
       ],
       "date": "10 жовтня",
       "location": "Кастро",
-      "caption": "Те саме море. Три моменти одного заходу.",
+      "caption": "Два погляди на захід — і один спільний.",
       "layout": "triptych"
     },
     {
@@ -190,6 +190,23 @@
     },
     {
       "page": 15,
+      "section": "Історія Мілоса",
+      "title": "Венера, знайдена на Мілосі",
+      "photos": [
+        "VENUS"
+      ],
+      "date": "1820 → 1821",
+      "location": "Мілос → Париж",
+      "caption": "Дві сотні років потому острів досі вписаний у назву однієї з найвідоміших античних статуй.",
+      "layout": "history",
+      "history": {
+        "body": "У 1820 році на Мілосі знайшли мармурову Афродіту — майбутню Венеру Мілоську. Її незвична краса стала взірцем елліністичної скульптури, а відсутні руки залишили мистецтвознавцям загадку. Французький посол маркіз де Рів’єр придбав статую, подарував її Людовику XVIII — і 1821 року король передав її Лувру.",
+        "credit": "Музейне фото: Gary Todd, 2009 · CC0 1.0 · Wikimedia Commons",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Louvre_Venus_de_Milo_(9811956244).jpg"
+      }
+    },
+    {
+      "page": 16,
       "section": "Північне узбережжя",
       "title": "Пауза біля води",
       "photos": [
@@ -201,21 +218,21 @@
       "layout": "solo"
     },
     {
-      "page": 16,
+      "page": 17,
       "section": "Повернення до Палеохорі",
-      "title": "Повернулися за кольором",
+      "title": "Берег спершу, камінь зблизька",
       "photos": [
+        "S37",
         "S35",
-        "S36",
-        "S37"
+        "S36"
       ],
       "date": "13 жовтня",
       "location": "Палеохорі",
-      "caption": "Після 11 жовтня повернулися за деталями: породи, фактура, інше світло.",
+      "caption": "Спочатку — весь берег. Потім його червона деталь.",
       "layout": "triptych"
     },
     {
-      "page": 17,
+      "page": 18,
       "section": "Селища біля моря",
       "title": "Двері просто в море",
       "photos": [
@@ -228,7 +245,7 @@
       "layout": "pair"
     },
     {
-      "page": 18,
+      "page": 19,
       "section": "Селища біля моря",
       "title": "Бухта з білою церквою",
       "photos": [
@@ -243,7 +260,7 @@
       "layout": "quartet"
     },
     {
-      "page": 19,
+      "page": 20,
       "section": "Селища біля моря",
       "title": "Мандракія в одному кадрі",
       "photos": [
@@ -255,7 +272,7 @@
       "layout": "solo"
     },
     {
-      "page": 20,
+      "page": 21,
       "section": "Знову Саракініко",
       "title": "Повернення на білий берег",
       "photos": [
@@ -268,7 +285,7 @@
       "layout": "pair"
     },
     {
-      "page": 21,
+      "page": 22,
       "section": "Знову Саракініко",
       "title": "Один камінь, три ракурси",
       "photos": [
@@ -282,7 +299,7 @@
       "layout": "triptych"
     },
     {
-      "page": 22,
+      "page": 23,
       "section": "Природні форми",
       "title": "Вода всередині скель",
       "photos": [
@@ -295,7 +312,7 @@
       "layout": "pair"
     },
     {
-      "page": 23,
+      "page": 24,
       "section": "Поллонія",
       "title": "У моря змінився настрій",
       "photos": [
@@ -309,7 +326,7 @@
       "layout": "triptych"
     },
     {
-      "page": 24,
+      "page": 25,
       "section": "Адамас",
       "title": "Знову до порту",
       "photos": [
@@ -321,7 +338,7 @@
       "layout": "solo"
     },
     {
-      "page": 25,
+      "page": 26,
       "section": "Останній день",
       "title": "Знайомий берег, інше світло",
       "photos": [
@@ -336,7 +353,7 @@
       "layout": "quartet"
     },
     {
-      "page": 26,
+      "page": 27,
       "section": "Прощання",
       "title": "Від білого каменю до останнього пляжу",
       "photos": [
@@ -351,35 +368,108 @@
       "layout": "quartet"
     },
     {
-      "page": 27,
+      "page": 28,
+      "section": "Підсумок подорожі",
+      "title": "Греція 2026 у цифрах",
+      "photos": [],
+      "date": "8–17 жовтня 2026",
+      "location": "Афіни · Мілос · Пірей",
+      "caption": "Десять календарних днів, один переліт, один пором — і чимало причин залишити ще один день.",
+      "layout": "stats",
+      "stats": [
+        {
+          "value": "10",
+          "label": "календарних днів",
+          "note": "8–17 жовтня 2026"
+        },
+        {
+          "value": "2",
+          "label": "напрямки",
+          "note": "Афіни та Мілос"
+        },
+        {
+          "value": "1",
+          "label": "переліт",
+          "note": "Афіни → Мілос"
+        },
+        {
+          "value": "1",
+          "label": "пором назад",
+          "note": "Мілос → Пірей"
+        },
+        {
+          "value": "9",
+          "label": "точок на карті",
+          "note": "підтверджені місця журналу"
+        },
+        {
+          "value": "≈ 3,5 км",
+          "label": "одна підтверджена прогулянка",
+          "note": "Підтверджений відрізок 14 жовтня; не загальна відстань за поїздку."
+        },
+        {
+          "value": "не підтверджено",
+          "label": "автомобільний пробіг",
+          "note": "116 км — стара приблизна оцінка, не виміряний пробіг."
+        }
+      ]
+    },
+    {
+      "page": 29,
       "section": "Відплиття",
       "title": "Час підніматися на борт",
       "photos": [
         "S64",
         "S65",
-        "S66"
+        "S66",
+        "S67"
       ],
       "date": "17 жовтня",
       "location": "Порт Адамаса",
-      "caption": "Пором готовий. Відпустка — ще не зовсім.",
-      "layout": "triptych"
+      "caption": "Три кроки на пором — і перша біла риска за кормою.",
+      "layout": "quartet"
     },
     {
-      "page": 28,
+      "page": 30,
       "section": "Пором і фінал",
-      "title": "Берег віддаляється",
+      "title": "Мілос лишається на горизонті",
       "photos": [
-        "S67",
         "S68",
         "S69"
       ],
       "date": "17 жовтня",
       "location": "Мілос → Афіни",
-      "caption": "Хороший фінал не потребує довгих пояснень.",
-      "layout": "triptych"
+      "caption": "Між островом і домом — одна довга синя пауза.",
+      "layout": "pair"
     }
   ],
   "photos": [
+    {
+      "id": "C01",
+      "src": "assets/C01.webp",
+      "fallback": "assets/C01.jpg",
+      "width": 2200,
+      "height": 1238,
+      "date": "2026-10-09",
+      "source_sha256": "4a064c1b129e0f8304ac84249616530444aa84b6d5df7c8f863bc0a5456ef20c",
+      "alt": "Спільне фото біля Панатінаїкос: перший день — уже командна робота.",
+      "location": "Афіни",
+      "role": "personal-candidate",
+      "consent": "Owner approved; Oksana consent confirmed for C01, C03, C04."
+    },
+    {
+      "id": "C02",
+      "src": "assets/C02.webp",
+      "fallback": "assets/C02.jpg",
+      "width": 2200,
+      "height": 1650,
+      "date": "2026-10-09",
+      "source_sha256": "af46167d08144ee2ae450719f993e7803d03e235306e379e790e93ae0957217b",
+      "alt": "Підйом на Акрополь: краєвид дістається тим, хто йде.",
+      "location": "Афіни",
+      "role": "personal-candidate",
+      "consent": "Owner approved; Oksana consent confirmed for C01, C03, C04."
+    },
     {
       "id": "S01",
       "src": "assets/S01.webp",
@@ -489,6 +579,32 @@
       "sha256": "ba825e946cd4037ddff45fa13d50b07c998cf6d2cd43b8a7e0ddc6cb7f0c9d7f",
       "alt": "Освітлена таверна в Адамасі",
       "location": "Адамас"
+    },
+    {
+      "id": "C03",
+      "src": "assets/C03.webp",
+      "fallback": "assets/C03.jpg",
+      "width": 1650,
+      "height": 2200,
+      "date": "2026-10-10",
+      "source_sha256": "83b5f92b8c73be22b94d07c87c52fb440f76f5ec1823f7db54b040ac5edc8fbf",
+      "alt": "Сніданок перед великим білим берегом. Пріоритети розставлено.",
+      "location": "Адамас",
+      "role": "personal-candidate",
+      "consent": "Owner approved; Oksana consent confirmed for C01, C03, C04."
+    },
+    {
+      "id": "C04",
+      "src": "assets/C04.webp",
+      "fallback": "assets/C04.jpg",
+      "width": 2200,
+      "height": 1238,
+      "date": "2026-10-10",
+      "source_sha256": "20fae8a2fe43277bbb9e0a5e26d5bc44a36c194257c7f6f4a1ab1d5c17f84ed0",
+      "alt": "Захід сонця кращий, коли є з ким його розділити.",
+      "location": "Плака / Кастро",
+      "role": "personal-candidate",
+      "consent": "Owner approved; Oksana consent confirmed for C01, C03, C04."
     },
     {
       "id": "S11",
@@ -1138,6 +1254,20 @@
       "sha256": "955ae035c04eaf195bfa1a21381cf79c1dcb205efe5536723f682981c7a7b57a",
       "alt": "Море й кільватерний слід на шляху до Афін",
       "location": "Пором: Адамас — Афіни"
+    },
+    {
+      "id": "VENUS",
+      "src": "assets/venus-de-milo-cc0.webp",
+      "fallback": "assets/venus-de-milo-cc0.jpg",
+      "width": 2450,
+      "height": 3527,
+      "alt": "Афродіта, відома як Венера Мілоська — фото Gary Todd, CC0",
+      "location": "Музейне зображення · не фото з подорожі",
+      "role": "museum-image",
+      "credit": "Фото: Gary Todd (2009), CC0 1.0, Wikimedia Commons.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Louvre_Venus_de_Milo_(9811956244).jpg",
+      "license": "CC0 1.0 Universal Public Domain Dedication"
     }
-  ]
+  ],
+  "version_code": "GR26-20261019-V03"
 }
