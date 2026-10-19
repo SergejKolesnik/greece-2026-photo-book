@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*token*
+*credentials*
+node_modules/
+__pycache__/
+.venv/
+work/
+logs/
+sessions/
+01_Оригінали/
+*.log
+Thumbs.db
+.DS_Store
