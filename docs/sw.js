@@ -1,1 +1,11 @@
-const CACHE='greece-approved69-v2';self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith(fetch(e.request).then(async r=>{if(r.ok){const c=await caches.open(CACHE);await c.put(e.request,r.clone());const keys=await c.keys();if(keys.length>160)await c.delete(keys[0])}return r}).catch(()=>caches.match(e.request).then(r=>r||new Response('Немає з’єднання',{status:503}))))});
+const CACHE='greece-editorial-28-v2';
+self.addEventListener('install',()=>self.skipWaiting());
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('greece-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{
+  const url=new URL(event.request.url);
+  if(event.request.method!=='GET'||url.origin!==self.location.origin||url.pathname.endsWith('.pdf'))return;
+  event.respondWith(fetch(event.request).then(async response=>{
+    if(response.ok){try{const cache=await caches.open(CACHE);await cache.put(event.request,response.clone());const keys=await cache.keys();if(keys.length>190)await cache.delete(keys[0])}catch{}}
+    return response;
+  }).catch(()=>caches.match(event.request).then(response=>response||new Response('Немає з’єднання',{status:503}))));
+});
