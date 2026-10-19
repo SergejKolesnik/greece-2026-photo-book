@@ -23,8 +23,15 @@ for p in pages:
     cards.append(f'<article class="journal-page layout-{p["layout"]}{ship}" id="page-{n}" data-page="{n}" aria-labelledby="title-{n}"><header class="page-head"><p class="eyebrow">{esc(p["section"])} <span>{esc(p["date"])}</span></p><{heading} id="title-{n}">{esc(p["title"])}</{heading}></header>{content}<footer class="page-foot"><p>{esc(p["caption"])}</p><span class="folio" aria-label="Сторінка {n} з {page_count}">{n:02}<small> / {page_count}</small></span></footer></article>')
 toc=''.join(f'<a href="#page-{p["page"]}"><span>{p["page"]:02}</span>{esc(p["title"])}</a>' for p in pages)
 places=json.loads((site/'map-data/places.json').read_text(encoding='utf-8'))
-buttons=''.join(f'<button type="button" class="place-choice" data-place="{p["n"]}" aria-pressed="false"><b>{p["n"]}</b>{esc(p["name"])}</button>' for p in places)
+buttons=''.join(f'<button type="button" class="place-choice" data-place="{p["n"]}" aria-pressed="false"><b>{esc(str(p.get("badge",p["n"])))}</b>{esc(p["name"])}</button>' for p in places)
 svg=(site/'map-data/milos-map.svg').read_text(encoding='utf-8')
+extra_pins=[]
+for p in places:
+    if p['n']<=9: continue
+    n=p['n'];x=p['x'];y=p['y'];lx=p['labelX'];ly=p['labelY']
+    badge=esc(str(p.get('badge',n)))
+    extra_pins.append(f'<g class="map-pin" role="button" tabindex="0" data-place="{n}" aria-label="Група {badge}: {esc(p["name"])}" aria-pressed="false"><title>{esc(p["name"])}</title><line x1="{x}" y1="{y}" x2="{lx}" y2="{ly}" stroke="#2b201a" stroke-width="2"/><circle class="geo-anchor" cx="{x}" cy="{y}" r="5" fill="#9b4938"/><circle class="pin-label" cx="{lx}" cy="{ly}" r="22" fill="#b35f47" stroke="#fff4d7" stroke-width="2"/><text x="{lx}" y="{ly+1}" text-anchor="middle" dominant-baseline="central" fill="#fff7e9" font-size="19" font-family="system-ui" font-weight="700">{badge}</text></g>')
+svg=svg.replace('</g></g><path d="M65', '</g>'+''.join(extra_pins)+'</g><path d="M65')
 template=(repo/'scripts/templates/index.html').read_text(encoding='utf-8')
 result=template.replace('{{TOC}}',toc).replace('{{PAGES}}','\n'.join(cards)).replace('{{SVG}}',svg).replace('{{BUTTONS}}',buttons).replace('{{PAGE_COUNT}}',str(page_count)).replace('{{VERSION_CODE}}',version_code)
 (site/'index.html').write_text(result,encoding='utf-8')

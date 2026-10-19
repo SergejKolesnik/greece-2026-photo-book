@@ -2,7 +2,7 @@
 
 Optional: --url https://.../ checks every deployed resource and the public manifest.
 """
-import argparse,csv,hashlib,json,concurrent.futures,urllib.request,xml.etree.ElementTree as ET
+import argparse,csv,hashlib,json,concurrent.futures,urllib.request,xml.etree.ElementTree as ET,re
 from html.parser import HTMLParser
 from pathlib import Path
 from PIL import Image
@@ -10,7 +10,7 @@ from pypdf import PdfReader
 repo=Path(__file__).resolve().parents[1];site=repo/'docs'
 data=json.loads((site/'content.json').read_text(encoding='utf-8-sig'))
 photos={p['id']:p for p in data['photos']};pages=data['pages'];version=data['version_code']
-assert version=='GR26-20261019-V04' and len(pages)==30 and [p['page'] for p in pages]==list(range(1,31))
+assert version=='GR26-20261019-V05' and len(pages)==30 and [p['page'] for p in pages]==list(range(1,31))
 flat=[ident for p in pages for ident in p['photos']]
 personal=[ident for ident in flat if ident.startswith(('S','C'))]
 selected=[ident for ident in personal if ident.startswith('S')]
@@ -61,11 +61,12 @@ pdftext=[p.extract_text() or '' for p in pdf.pages]
 assert all(version in s for s in pdftext)
 assert 'Венера' in pdftext[14] and 'Греція 2026 у цифрах' in pdftext[27]
 assert 'S55' in pages[24]['photos'] and 'object-fit:cover' not in (site/'styles.css').read_text(encoding='utf-8-sig').split('.ship-page')[1].split('}',1)[0]
-svg=ET.fromstring((site/'map-data/milos-map.svg').read_text(encoding='utf-8'))
+html_source=(site/'index.html').read_text(encoding='utf-8-sig')
+svg=ET.fromstring(re.search(r'(<svg\b.*?</svg>)',html_source).group(1))
 scene=next(el for el in svg if el.attrib.get('class')=='map-scene')
 assert len([el for el in scene if el.attrib.get('class')=='island-coast'])==1
-pins=[el for el in scene if el.attrib.get('class')=='map-pin'];assert len(pins)==9
-assert {int(el.attrib['data-place']) for el in pins}==set(range(1,10))
+pins=[el for el in scene if el.attrib.get('class')=='map-pin'];assert len(pins)==12
+assert {int(el.attrib['data-place']) for el in pins}==set(range(1,13))
 coast=json.loads((site/'map-data/milos-coastline.geojson').read_text(encoding='utf-8'))
 ring=coast['features'][0]['geometry']['coordinates'][0];assert ring[0]==ring[-1] and len(ring)>1000
 args=argparse.ArgumentParser();args.add_argument('--url');opts=args.parse_args()
@@ -82,4 +83,4 @@ if opts.url:
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:list(pool.map(check,paths))
     with urllib.request.urlopen(base+'content.json',timeout=30) as r:assert json.load(r)==data,'Remote editorial manifest differs'
     remote=f'OK: {len(paths)} resources and matching remote manifest'
-print(json.dumps({'version':version,'pages':30,'personal_photos':69,'approved_new_candidates':4,'museum_images':1,'pdf_pages':len(pdf.pages),'pdf_version_code':'30/30 OK','unassigned_replaced_photos':['S01','S05','S14','S18'],'personal_duplicates':0,'chronology':'OK (cover and inserted history/stat pages excluded)','image_decoding':'148/148 OK','static_html':'70/70 visual images','cover_origin_hash':'OK','ship_original':'full aspect ratio retained','map':'9 pins and coastline share SVG scene','public':remote},ensure_ascii=True))
+print(json.dumps({'version':version,'pages':30,'personal_photos':69,'approved_new_candidates':4,'museum_images':1,'pdf_pages':len(pdf.pages),'pdf_version_code':'30/30 OK','unassigned_replaced_photos':['S01','S05','S14','S18'],'personal_duplicates':0,'chronology':'OK (cover and inserted history/stat pages excluded)','image_decoding':'148/148 OK','static_html':'70/70 visual images','cover_origin_hash':'OK','ship_original':'full aspect ratio retained','map':'12 accessible map callouts and coastline share one SVG scene','public':remote},ensure_ascii=True))
