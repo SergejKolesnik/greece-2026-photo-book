@@ -81,5 +81,5 @@ if opts.url:
         return path
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:list(pool.map(check,paths))
     with urllib.request.urlopen(base+'content.json',timeout=30) as r:assert json.load(r)==data,'Remote editorial manifest differs'
-    remote=f'OK: {len(paths)} HTTPS resources and deployed manifest'
+    remote=f'OK: {len(paths)} resources and matching remote manifest'
 print(json.dumps({'version':version,'pages':30,'personal_photos':69,'approved_new_candidates':4,'museum_images':1,'pdf_pages':len(pdf.pages),'pdf_version_code':'30/30 OK','unassigned_replaced_photos':['S01','S05','S14','S18'],'personal_duplicates':0,'chronology':'OK (cover and inserted history/stat pages excluded)','image_decoding':'148/148 OK','static_html':'70/70 visual images','cover_origin_hash':'OK','ship_original':'full aspect ratio retained','map':'9 pins and coastline share SVG scene','public':remote},ensure_ascii=True))
