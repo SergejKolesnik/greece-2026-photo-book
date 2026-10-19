@@ -27,6 +27,7 @@
     const selected = filter.value;
     const visible = places.filter(p => selected === 'all' || p.day === selected);
     markers.innerHTML = '';
+    details.innerHTML = '<p class="map-details-empty">Натисніть номер на карті, щоб побачити місце, дату й коротку нотатку.</p>';
     const clustered = selected === 'all' || selected === '12';
     visible.forEach(p => {
       if (clustered && p.n === 6) return;
