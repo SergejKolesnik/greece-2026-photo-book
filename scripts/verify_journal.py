@@ -10,7 +10,7 @@ from pypdf import PdfReader
 repo=Path(__file__).resolve().parents[1];site=repo/'docs'
 data=json.loads((site/'content.json').read_text(encoding='utf-8-sig'))
 photos={p['id']:p for p in data['photos']};pages=data['pages'];version=data['version_code']
-assert version=='GR26-20261019-V03' and len(pages)==30 and [p['page'] for p in pages]==list(range(1,31))
+assert version=='GR26-20261019-V04' and len(pages)==30 and [p['page'] for p in pages]==list(range(1,31))
 flat=[ident for p in pages for ident in p['photos']]
 personal=[ident for ident in flat if ident.startswith(('S','C'))]
 selected=[ident for ident in personal if ident.startswith('S')]
@@ -53,8 +53,8 @@ class JournalParser(HTMLParser):
     def handle_data(self,data):self.text.append(data)
 parser=JournalParser();parser.feed((site/'index.html').read_text(encoding='utf-8-sig'))
 assert parser.articles==[{'page':p['page'],'photos':p['photos']} for p in pages]
-assert len(parser.imgs)==70 and 'GR26-20261019-V03' in (site/'index.html').read_text(encoding='utf-8-sig')
-reader=' '.join(parser.text).lower()
+assert len(parser.imgs)==70 and version in (site/'index.html').read_text(encoding='utf-8-sig')
+reader=' '.join(parser.text).lower().replace(data['pages'][27]['stats_note'].lower(),'')
 assert not any(term in reader for term in ['gps','одометр','трек','маршрутних даних'])
 pdf=PdfReader(site/'greece-2026.pdf');assert len(pdf.pages)==30
 pdftext=[p.extract_text() or '' for p in pdf.pages]

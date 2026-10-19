@@ -63,6 +63,9 @@ for page in data['pages']:
             text(x+12,y+tileh-28,item['value'],'Serif',22,'#dc8e6a')
             text(x+12,y+tileh-48,item['label'],'Bold',9,'#f5f1e8')
             for j,line in enumerate(simpleSplit(item['note'],'Body',7.5,tilew-24)[:2]):text(x+12,y+tileh-64-j*11,line,'Body',7.5,'#aeb8ba')
+        note_y=103
+        note_lines=simpleSplit(page['stats_note'],'Body',7.5,488)
+        for j,line in enumerate(note_lines[:2]):text(26,note_y-j*10,line,'Body',7.5,'#aeb8ba')
     elif layout=='solo':frame(ids[0],26,bottom,488,height,True,True)
     elif layout=='pair':
         hh=(height-gap)/2;frame(ids[0],26,bottom+hh+gap,488,hh);frame(ids[1],26,bottom,488,hh)

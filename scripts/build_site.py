@@ -17,7 +17,7 @@ for p in pages:
         hist=p['history'];content=f'<div class="history-content">{figures}<div class="history-copy"><p>{esc(hist["body"])}</p><p class="image-credit"><a href="{esc(hist["source_url"])}">{esc(hist["credit"])}</a></p></div></div>'
     elif p['layout']=='stats':
         tiles=''.join(f'<div class="stat-tile"><strong>{esc(x["value"])}</strong><b>{esc(x["label"])}</b><span>{esc(x["note"])}</span></div>' for x in p['stats'])
-        content=f'<div class="stats-grid">{tiles}</div>'
+        content=f'<div class="stats-grid">{tiles}</div><p class="stats-note">{esc(p["stats_note"])}</p>'
     else:
         content=f'<div class="photo-grid">{figures}</div>'
     cards.append(f'<article class="journal-page layout-{p["layout"]}{ship}" id="page-{n}" data-page="{n}" aria-labelledby="title-{n}"><header class="page-head"><p class="eyebrow">{esc(p["section"])} <span>{esc(p["date"])}</span></p><{heading} id="title-{n}">{esc(p["title"])}</{heading}></header>{content}<footer class="page-foot"><p>{esc(p["caption"])}</p><span class="folio" aria-label="Сторінка {n} з {page_count}">{n:02}<small> / {page_count}</small></span></footer></article>')
