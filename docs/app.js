@@ -9,7 +9,7 @@ function showPhoto(index){
   const photo=photoById.get(readingOrder[current]);
   viewImage.src=photo.src;viewImage.alt=photo.alt;
   viewImage.onerror=()=>{viewImage.onerror=null;viewImage.src=photo.fallback};
-  document.querySelector('#view-caption').textContent=`${current+1} / 69 · ${photo.alt}`;
+  document.querySelector('#view-caption').textContent=`${current+1} / ${readingOrder.length} · ${photo.alt}`;
   scale=1;viewImage.style.transform='scale(1)';
   if(!dialog.open){dialog.showModal();document.body.classList.add('viewer-open')}
 }
@@ -39,7 +39,7 @@ document.querySelectorAll('.photo-frame img').forEach(img=>{
 });
 document.querySelectorAll('.contents-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.contents').removeAttribute('open')));
 if('IntersectionObserver' in window){
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)document.querySelector('.reading-progress').textContent=`${String(entry.target.dataset.page).padStart(2,'0')} / 28`}),{rootMargin:'-10% 0px -35% 0px',threshold:.25});
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)document.querySelector('.reading-progress').textContent=`${String(entry.target.dataset.page).padStart(2,'0')} / ${DATA.pages.length}`}),{rootMargin:'-10% 0px -35% 0px',threshold:.25});
   document.querySelectorAll('.journal-page').forEach(p=>observer.observe(p));
 }
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
