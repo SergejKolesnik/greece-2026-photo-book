@@ -4,10 +4,11 @@ const details=document.querySelector('#map-details');
 function selectPlace(number){
  const place=PLACES.find(p=>p.n===Number(number));if(!place)return;
  document.querySelectorAll('[data-place]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.place)===place.n)));
- const heading=document.createElement('h3');heading.textContent=`${place.n}. ${place.name}`;
+ const heading=document.createElement('h3');heading.textContent=`${place.badge?`Група ${place.badge}`:`${place.n}`}. ${place.name}`;details.replaceChildren(heading);
+ if(place.category){const category=document.createElement('p');category.className='place-category';category.textContent=place.category;details.append(category);}
  const date=document.createElement('p');date.className='place-date';date.textContent=place.date;
  const note=document.createElement('p');note.textContent=place.note;
- details.replaceChildren(heading,date,note);
+ details.append(date,note);
 }
 document.querySelectorAll('[data-place]').forEach(el=>{
  el.addEventListener('click',()=>selectPlace(el.dataset.place));
